@@ -1,0 +1,12 @@
+<?php
+$file = '../img/fb.png';
+header('Content-type: image/png');
+list($width, $height) = getimagesize($file);
+$modwidth= $width * $size;
+$modheight= $height * $size;
+$tn= imagecreatetruecolor($modwidth, $modheight); // Creating the Canvas
+$source = imagecreatefrompng($file);
+// Resizing our image to fit the canvas
+imagecopyresized($tn, $source, 0, 0, 0, 0, $modwidth, $modheight, $width, $height);
+imagepng($tn);
+ ?>
